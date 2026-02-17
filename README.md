@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+# 🟩 Wordle Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A fully-featured Wordle clone built with React — includes daily words, practice mode, hard mode, stats tracking, streaks, and 2,300+ words from the official Wordle answer list.
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react)
+![License](https://img.shields.io/badge/license-MIT-green?style=flat)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🗓️ **Daily Word** — same word for everyone each day, resets at midnight
+- 🔁 **Practice Mode** — unlimited random games anytime
+- 💪 **Hard Mode** — must reuse revealed hints in future guesses
+- 📊 **Stats & Streaks** — tracks games played, win %, current streak, max streak, and guess distribution
+- 💾 **Persistent State** — progress and stats saved in localStorage (won't reset on refresh)
+- 🟩 **2,300+ Words** — full official Wordle answer list embedded
+- ⌨️ **Physical Keyboard Support** — type normally or click the on-screen keyboard
+- ❓ **How to Play Modal** — built-in tutorial for new players
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+Make sure you have [Node.js](https://nodejs.org/) installed (v16 or higher).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# 1. Clone the repository
+git clone https://github.com/YOUR_USERNAME/wordle-clone.git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 2. Move into the project folder
+cd wordle-clone
 
-### `npm run eject`
+# 3. Install dependencies
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# 4. Start the development server
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📁 Project Structure
 
-## Learn More
+```
+wordle-clone/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js          ← Main game component (paste wordle-pro.jsx content here)
+│   └── index.js        ← React entry point
+├── package.json
+└── README.md
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🎮 How to Play
 
-### Code Splitting
+| Color | Meaning |
+|-------|---------|
+| 🟩 Green | Correct letter, correct position |
+| 🟨 Yellow | Correct letter, wrong position |
+| ⬛ Gray | Letter not in the word |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- You have **6 guesses** to find the hidden 5-letter word
+- Each guess must be a valid English word
+- In **Hard Mode**, any revealed hints must be used in subsequent guesses
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🛠️ Built With
 
-### Making a Progressive Web App
+- [React](https://reactjs.org/) — UI framework
+- [Create React App](https://create-react-app.dev/) — project scaffolding
+- CSS-in-JS — all styles written inline for portability
+- `localStorage` — for persisting stats and daily game state
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 📦 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Deploy to GitHub Pages
 
-### Deployment
+```bash
+# 1. Install gh-pages
+npm install --save-dev gh-pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# 2. Add to package.json
+#    "homepage": "https://YOUR_USERNAME.github.io/wordle-clone"
+#    "scripts": { "predeploy": "npm run build", "deploy": "gh-pages -d build" }
 
-### `npm run build` fails to minify
+# 3. Deploy
+npm run deploy
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Deploy to Vercel
+
+```bash
+npm install -g vercel
+vercel
+```
+
+---
+
+## 📄 License
+
+This project is open source under the [MIT License](LICENSE).
+
+---
+
+## 🙏 Acknowledgements
+
+- Original Wordle by [Josh Wardle](https://www.powerlanguage.co.uk/)
+- Word list sourced from the official NYT Wordle game
