@@ -63,6 +63,8 @@ const ANSWERS = [
   "gusto","haven","heart","heavy","hedge","hence","herbs","hinge","hippo","hobby",
   "honey","honor","horse","hotel","house","human","humid","humor","hurry","image",
   "imply","inbox","index","indie","inept","inked","inner","inter","intro","ionic",
+  "adieu","audio","arise","irate","stone","crane","slant","round","siren","latch",
+  "cared","pinto","blend","forum","wrist","nymph","quick","vowel","tiger","homer",
   "irate","irony","issue","jazzy","jewel","jiffy","joint","jolly","judge","juice",
   "juicy","juror","kayak","kebab","kiosk","kitty","kneel","knife","knock","known",
   "kudos","label","lance","lapse","large","laser","latch","layer","learn","legal",
@@ -109,6 +111,7 @@ const ANSWERS = [
   "yearn","yield","yours","youth","zebra","zones","abbey","abyss","acorn","adorn",
   "algae","altar","angel","anime","annex","anvil","arbor","ardor","atone","audio",
   "avoid","badge","baker","balmy","basil","began","below","bench","bison","bless",
+  "SLATE", "CRANE", "TRACE", "CARTE", "SLANT", "CLAMP", "CLASH", "CRATE", "SLICE", "CRISP", "SLOPE",
   "bliss","blood","bloom","blown","board","boost","booth","braid","brand","bride",
   "brief","broad","broke","brown","built","bumpy","burst","camel","cameo","candy",
   "canon","catch","cease","chain","charm","cheap","chess","civic","claim","class",
@@ -411,11 +414,13 @@ function StatsModal({ stats, onClose, gameOver, won, answer, guessCount }) {
           onMouseOver={e => e.target.style.background = "#6aad63"}
           onMouseOut={e => e.target.style.background = "#538d4e"}
         >
-          {gameOver ? "New Game" : "Close"}
+          {gameOver ? "Play Again" : "Close"}
+          
         </button>
       </div>
     </div>
   );
+  
 }
 
 // ─── HELP MODAL ──────────────────────────────────────────────────────────────
@@ -746,10 +751,21 @@ export default function WordlePro() {
 
       {/* MODALS */}
       {showStats && (
-        <StatsModal stats={stats} onClose={() => { setShowStats(false); if (gameOver && mode === "practice") startPractice(); }}
-          gameOver={gameOver} won={won} answer={answer} guessCount={guesses.length} />
-      )}
-      {showHelp && <HelpModal onClose={() => setShowHelp(false)} />}
+  <StatsModal 
+    stats={stats} 
+    onClose={() => { 
+  setShowStats(false); 
+  if (gameOver) {
+    // Always start a new practice game with random word
+    startPractice();
+  }
+}}
+    gameOver={gameOver} 
+    won={won} 
+    answer={answer} 
+    guessCount={guesses.length} 
+  />
+)}
 
       <style>{`
         @keyframes shake {

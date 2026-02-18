@@ -16,5 +16,5 @@ export default function App() {
       {page === "wordle" && <WordlePro />}
       {page === "memory" && <MemoryGame />}
     </div>
-  );
-}
+  );}
+  
